@@ -7,21 +7,39 @@ import produto.Produto;
 
 public class CarrinhoTest {
 	
-	Produto p = new Produto("A1",0.34);
-	Carrinho car = new Carrinho();
+	
 	
 	@Test
 	public void testeadditem()
 	{
+		Produto p = new Produto("A1",0.34);
+		Carrinho car = new Carrinho();
 		car.addItem(p);
-		int a = car.getQtdeItems();
-		System.out.print(a);
 		Assertions.assertNotNull(car);
 	}
 	@Test
 	public void testeQtdITem()
 	{
-		Assertions.assertEquals(0, car.getQtdeItems());
+		Produto p = new Produto("A1",0.34);
+		Carrinho car = new Carrinho();
+		car.addItem(p);
+		Assertions.assertEquals(1, car.getQtdeItems());
 	}
+	
+	@Test
+	public void testeValorTotal()
+	{
+		
+		Produto p = new Produto("A1",0.34);
+		Carrinho car = new Carrinho();
+		car.addItem(p);
+		double valor = 0.34;
+		
+		Assertions.assertEquals(valor, car.getValorTotal());
+		
+		
+	}
+	
+	
 
 }
