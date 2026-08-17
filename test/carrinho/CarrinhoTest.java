@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
 import produto.Produto;
+import produto.ProdutoNaoEncontradoException;
 
 public class CarrinhoTest {
 	
@@ -38,6 +39,15 @@ public class CarrinhoTest {
 		Assertions.assertEquals(valor, car.getValorTotal());
 		
 		
+	}
+	@Test
+	public void testeRemover() throws ProdutoNaoEncontradoException
+	{
+		Produto p = new Produto("A1",0.34);
+		Carrinho car = new Carrinho();
+		car.addItem(p);
+		car.removeItem(p);
+		Assertions.assertEquals(0,car.getQtdeItems());
 	}
 	
 	
